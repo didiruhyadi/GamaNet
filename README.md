@@ -1,3 +1,2 @@
 # GamaNet
-Birdcall Identification
-identificaiton birdcall
+Readmy boy
