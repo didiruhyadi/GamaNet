@@ -1,2 +1,2 @@
 # GamaNet
-Readmy boy
+Readmy testing
