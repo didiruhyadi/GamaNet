@@ -1,2 +1,2 @@
 # GamaNet
-Readmy testing not changing
+Implementasi kecerdasan buatan pada ranah identifikasi suara burung
