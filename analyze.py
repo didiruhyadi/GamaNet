@@ -134,6 +134,9 @@ def getAudacityLabels(p, path):
 
     # Selection table
     stext = ''
+
+    header = 'Begin\tEnd\tSpecies\tConf\n'
+    stext += header
     
     # Extract valid predictions for every timestamp
     for timestamp in sorted(p):
@@ -142,7 +145,7 @@ def getAudacityLabels(p, path):
         min_conf = 0
         for c in p[timestamp]:
             if c[1] > cfg.MIN_CONFIDENCE + min_conf and c[0] in cfg.WHITE_LIST:
-                rstring += str(start) + '\t' + str(end) + '\t' + c[0].split('_')[1] + ';' + str(int(c[1] * 100) / 100.0) + '\n'
+                rstring += str(start) + '\t' + str(end) + '\t' + c[0].split('_')[1] + '\t' + str(int(c[1] * 100) / 100.0) + '\n'
 
         # Write result string to file
         if len(rstring) > 0:
@@ -228,11 +231,11 @@ def process(soundscape, sid, out_dir, out_type, test_function):
         os.makedirs(out_dir)
     
     if out_type == 'raven':
-        with open(os.path.join(out_dir, os.path.splitext(soundscape.split(os.sep)[-1])[0] + '.BirdNET.selections.txt'), 'w') as stfile:
+        with open(os.path.join(out_dir, os.path.splitext(soundscape.split(os.sep)[-1])[0] + '.GamaNet.txt'), 'w') as stfile:
             stfile.write(stable)
 
     else:
-        with open(os.path.join(out_dir, os.path.splitext(soundscape.split(os.sep)[-1])[0] + '.BirdNET.Audacity_Labels.txt'), 'w') as stfile:
+        with open(os.path.join(out_dir, os.path.splitext(soundscape.split(os.sep)[-1])[0] + '.GamaNet.txt'), 'w') as stfile:
             stfile.write(atext)        
 
     # Time
